@@ -5,6 +5,7 @@ class GenerateForm(forms.Form):
     #Platform
     platform = forms.ChoiceField(choices=[('windows','Windows'),('linux','Linux (currently unavailable)'),('android','Android'),('macos','macOS')], initial='windows')
     version = forms.ChoiceField(choices=[('master','nightly'),('1.3.8','1.3.8'),('1.3.7','1.3.7'),('1.3.6','1.3.6'),('1.3.5','1.3.5'),('1.3.4','1.3.4'),('1.3.3','1.3.3')], initial='1.3.8')
+    help_text="'master' is the development version (nightly build) with the latest features but may be less stable"
     delayFix = forms.BooleanField(initial=True, required=False)
 
     #General
@@ -76,7 +77,6 @@ class GenerateForm(forms.Form):
     cycleMonitor = forms.BooleanField(initial=False, required=False)
     xOffline = forms.BooleanField(initial=False, required=False)
     hidecm = forms.BooleanField(initial=False, required=False)
-    statussort = forms.BooleanField(initial=False, required=False)
     removeNewVersionNotif = forms.BooleanField(initial=False, required=False)
 
     def clean_iconfile(self):
